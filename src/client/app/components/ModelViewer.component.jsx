@@ -12,7 +12,7 @@ export default class ModelViewer extends Component {
 
   render() {
     return (
-      <div>
+      <div id="model-viewer">
         <p>ModelViewer</p>
       </div>
     );

@@ -19,10 +19,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <ChatBox />
         <ModelViewer />
-        <NavBar />
-        <UserInfo />
       </div>
     );
   }
