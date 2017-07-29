@@ -26,45 +26,44 @@ const rapidClient = rapid.createClient('NDA1OWE0MWo1b3AzYTBiLnJhcGlkLmlv')
 // 	poop: "asass"
 // });
 
-
-function createNewtable(name)
+//make a pointer to a new or exisiting table
+function createOrQueryTable(name)
 {
 	const collect = rapidClient.collection(name);
 	return collect;
 }
 
-function createNewTableWithDocument(name, tableName)
+//create a docutment with a unquie ID but not dat and
+//gets a pointer to that ID
+// use mutate 
+function createNewDocument(tableName, docName)
 {
-	const collect = createNewtable(name);
-	const doc = collect.newDocument(tableName);
+	const collect = createOrQueryTable(tableName);
+	const doc = collect.newDocument(docName);
 	return doc;
 }
 
+//DANGER
 //easy way to update a field
 //post: table name and which id and the JSON
 //you got to make sure the JSON is exactly the same or it will make a new fieldåç
 function mergeSpecificDocument(table,docId,feilds)
 {
-	const toDos = rapidClient.collection(table);
-	const toDo = toDos.document(docId);
-	toDo.merge(feilds);
-}
+	const toDos = rapidClient.collection(table)
+					.document(docId)
+					.merge(feilds);
+}	
 
 //easy way to append to a table
-function mutateSpecificDocument(col,docId,field)
+//this is to add
+//if a doc does not exsist it will create a new one
+function mutateSpecificDocument(table,docId,field)
 {
-	rapidClient.collection(col).document(docId).mutate(field);
+	rapidClient.collection(col)
+				.document(docId)
+				.mutate(field);
 }
 
-//example
-function mutateDocument(docId)
-{
-	const toDos = rapidClient.collection('marvin');
-	const toDo = toDos.document(docId);
-	toDo.merge({
-		completed:true
-	});
-}
 
 function deleteSpecificId(table, docId)
 {
@@ -73,5 +72,25 @@ function deleteSpecificId(table, docId)
 					.delete();
 }
 
-mutateSpecificDocument("marvin", "133", {"max": "belman"});
+
+//example
+/*
+function mutateDocument(docId)
+{
+	const toDos = rapidClient.collection('marvin');
+	const toDo = toDos.document(docId);
+	toDo.merge({
+		completed:true
+	});
+}
+*/
+
+
+//mutateSpecificDocument("a", "2", {"max": "belman"});
 //deleteSpecificId("ryebO0LqIb");
+
+
+
+
+
+

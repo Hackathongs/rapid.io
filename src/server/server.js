@@ -26,5 +26,5 @@ app.use(express.static(path.join(__dirname, '../client')));
 require('./routes.js')(app);
 
 app.listen(port, () => { 
-  console.log(`server.js has been served on port: ${port}`); 
+  console.log(`server.js has been served on port: ${port}`);
 });
