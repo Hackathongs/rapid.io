@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import D3Graph from './D3Graph.component'
 
 export default class ModelViewer extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export default class ModelViewer extends Component {
   render() {
     return (
       <div className="model-viewer">
-        ModelViewer
+        <D3Graph />
       </div>
     );
   }
