@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-export default class UserInfo extends Component {
+export default class ObjectInfo extends Component {
   constructor(props) {
     super(props);
 
@@ -12,8 +12,8 @@ export default class UserInfo extends Component {
 
   render() {
     return (
-      <div>
-        <p>User Info</p>
+      <div className="object-info">
+        <p>Object Info</p>
       </div>
     );
   }

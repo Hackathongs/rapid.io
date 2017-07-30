@@ -12,8 +12,8 @@ export default class ModelViewer extends Component {
 
   render() {
     return (
-      <div id="model-viewer">
-        <p>ModelViewer</p>
+      <div className="model-viewer">
+        ModelViewer
       </div>
     );
   }
