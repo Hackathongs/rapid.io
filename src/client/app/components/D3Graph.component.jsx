@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import {Graph} from 'react-d3-graph';
 
 export default class D3Graph extends Component {
@@ -10,39 +11,70 @@ export default class D3Graph extends Component {
     {
       data : 
       {
-          nodes: [
-            {id: 'Harry'},
-            {id: 'Sally'},
-            {id: 'Alice'}
-          ],
-          links: [
-              {source: 'Harry', target: 'Sally'},
-              {source: 'Harry', target: 'Alice'},
-          ]
+        nodes: [
+          {id: 'Harry'},
+          {id: 'Sally'},
+          {id: 'Alice'}
+        ],
+        links: [
+            {source: 'Harry', target: 'Sally'},
+            {source: 'Harry', target: 'Alice'},
+        ]
       },
 
       myConfig: 
       {
-            highlightBehavior: true,
-            node: {
-                color: 'lightgreen',
-                size: 120,
-                highlightStrokeColor: 'blue'
-            },
-            link: {
-                highlightColor: 'lightblue'
-            }
+          highlightBehavior: true,
+          node: {
+              color: 'lightgreen',
+              size: 120,
+              highlightStrokeColor: 'blue'
+          },
+          link: {
+              highlightColor: 'lightblue'
+          },
+          width: 0,
+          height: 0
       }
-
     };
-
 
     this.onClickNode = this.onClickNode.bind(this);
     this.onMouseOverNode = this.onMouseOverNode.bind(this);
     this.onMouseOutNode = this.onMouseOutNode.bind(this);
     this.onClickLink = this.onClickLink.bind(this);
+    this.fitToParentSize = this.fitToParentSize.bind(this);
   }
 
+  fitToParentSize() {
+    const elem = ReactDOM.findDOMNode(this);
+    const width = elem.parentNode.offsetWidth;
+    const height = elem.parentNode.offsetHeight;
+    const currentSize = {
+      width: this.state.myConfig.width,
+      height: this.state.myConfig.height
+    };
+    if (width !== currentSize.width || height !== currentSize.height) {
+      this.setState({
+        myConfig: {
+          width,
+          height
+        },
+      });
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.fitToParentSize);
+    this.fitToParentSize();
+  }
+
+  componentWillReceiveProps() {
+    this.fitToParentSize();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.fitToParentSize);
+  }
 
   onClickNode (nodeId) {
        window.alert('Clicked node', nodeId);
@@ -61,6 +93,8 @@ export default class D3Graph extends Component {
   };
 
   render() {
+    const width = this.state.myConfig.width || 100;
+    const height = this.state.myConfig.height || 100;
 
     return (
       <div className="graph">

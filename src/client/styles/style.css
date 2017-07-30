@@ -29,7 +29,7 @@ html, body, #app {
 
 .model-viewer {
   flex: 4;
-  
+  display: flex;
 }
 
 .modules {
@@ -48,6 +48,6 @@ html, body, #app {
   background: purple;
 }
 
-.graph{
-
+.graph {
+  flex: 1;
 };
