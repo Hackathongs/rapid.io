@@ -28,7 +28,7 @@ html, body, #app {
 }
 
 .model-viewer {
-  flex: 4;
+  flex: 3;
   display: flex;
 }
 
@@ -50,4 +50,9 @@ html, body, #app {
 
 .graph {
   flex: 1;
+  display: flex;
 };
+
+#graph-id {
+  flex: 1;
+}

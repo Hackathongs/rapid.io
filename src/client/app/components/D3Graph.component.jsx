@@ -77,19 +77,19 @@ export default class D3Graph extends Component {
   }
 
   onClickNode (nodeId) {
-       window.alert('Clicked node', nodeId);
+      //  window.alert('Clicked node', nodeId);
   };
    
   onMouseOverNode (nodeId) {
-       window.alert('Mouse over node', nodeId);
+      //  window.alert('Mouse over node', nodeId);
   };
    
   onMouseOutNode(nodeId) {
-       window.alert('Mouse out node', nodeId);
+      //  window.alert('Mouse out node', nodeId);
   };
    
   onClickLink(source, target) {
-       window.alert(`Clicked link between ${source} and ${target}`);
+      //  window.alert(`Clicked link between ${source} and ${target}`);
   };
 
   render() {
