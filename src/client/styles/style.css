@@ -33,14 +33,33 @@ html, body, #app {
 }
 
 .modules {
-  flex: 1;
+  flex: 2;
   background: teal;
 }
 
 
-.chat-box {
+.chat-box{
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  background-color: orange;
+}
+
+.chat-text{
+  flex: 3;
+}
+
+.chat-footer{
   flex: 1;
-  background: orange;
+  display: flex;
+}
+
+.chat-name{
+  flex: 1;
+}
+
+.chat-input{
+  flex: 3;
 }
 
 .object-info {
@@ -51,7 +70,7 @@ html, body, #app {
 .graph {
   flex: 1;
   display: flex;
-};
+}
 
 #graph-id {
   flex: 1;

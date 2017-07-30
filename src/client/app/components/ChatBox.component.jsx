@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+// import ChatInput from './ChatInput/ChatInput.component';
+import ChatFooter from './ChatInputs/ChatFooter.component';
+import ChatText from './ChatInputs/ChatText.component';
+
 
 export default class ChatBox extends Component {
   constructor(props) {
@@ -13,7 +17,8 @@ export default class ChatBox extends Component {
   render() {
     return (
       <div className="chat-box">
-        <p>ChatBox</p>
+        <ChatText />
+        <ChatFooter />
       </div>
     );
   }
