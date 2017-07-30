@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import ReactDOM from 'react-dom';
 import {Graph} from 'react-d3-graph';
 
+import rapid from 'rapid-io';
+
 export default class D3Graph extends Component {
   constructor(props) {
     super(props);
@@ -63,6 +65,25 @@ export default class D3Graph extends Component {
     }
   }
 
+  componentWillMount() {
+    this.props.client
+      .collection('nodes')
+      .subscribe(nodes => {
+        console.log('subscribed');
+        const nodesArray = [];
+        nodes.forEach((node) => {
+          nodesArray.push({
+            id: node.body.id
+          })
+        });
+        this.setState({
+          data: {
+            nodes: nodesArray
+          }
+        });
+      });
+  }
+
   componentDidMount() {
     window.addEventListener('resize', this.fitToParentSize);
     this.fitToParentSize();
@@ -95,6 +116,8 @@ export default class D3Graph extends Component {
   render() {
     const width = this.state.myConfig.width || 100;
     const height = this.state.myConfig.height || 100;
+
+    console.log('render');
 
     return (
       <div className="graph">

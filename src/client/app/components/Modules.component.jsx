@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-import List from './List/List.component';
+import Form from './Form.component';
 
 export default class Modules extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ export default class Modules extends Component {
   render() {
     return (
       <div className="modules">
-        Modules
+        <Form client={this.props.client} />
       </div>
     );
   }

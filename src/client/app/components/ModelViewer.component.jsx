@@ -14,7 +14,7 @@ export default class ModelViewer extends Component {
   render() {
     return (
       <div className="model-viewer">
-        <D3Graph />
+        <D3Graph client={this.props.client} />
       </div>
     );
   }
