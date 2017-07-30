@@ -39,7 +39,7 @@ html, body, #app {
 
 
 .chat-box {
-  flex: 4;
+  flex: 1;
   background: orange;
 }
 
