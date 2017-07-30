@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-import List from './List/List.component';
-
-export default class Modules extends Component {
+export default class Body extends Component {
   constructor(props) {
     super(props);
 
@@ -14,8 +12,8 @@ export default class Modules extends Component {
 
   render() {
     return (
-      <div id="modules">
-        <List />
+      <div className="body"> 
+        body
       </div>
     );
   }
