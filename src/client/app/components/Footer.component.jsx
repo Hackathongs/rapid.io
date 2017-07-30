@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
+import ChatBox from './ChatBox.component';
+import ObjectInfo from './ObjectInfo.component';
+
 export default class Footer extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +16,8 @@ export default class Footer extends Component {
   render() {
     return (
       <div className="footer"> 
-        footer
+        <ChatBox />
+        <ObjectInfo />
       </div>
     );
   }

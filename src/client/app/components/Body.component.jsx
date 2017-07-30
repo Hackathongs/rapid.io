@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
+import ModelViewer from './ModelViewer.component';
+import Modules from './Modules.component';
+
 export default class Body extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +16,8 @@ export default class Body extends Component {
   render() {
     return (
       <div className="body"> 
-        body
+        <ModelViewer />
+        <Modules />
       </div>
     );
   }

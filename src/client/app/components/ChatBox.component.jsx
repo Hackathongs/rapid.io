@@ -12,7 +12,7 @@ export default class ChatBox extends Component {
 
   render() {
     return (
-      <div>
+      <div className="chat-box">
         <p>ChatBox</p>
       </div>
     );

@@ -14,8 +14,8 @@ export default class Modules extends Component {
 
   render() {
     return (
-      <div id="modules">
-        <List />
+      <div className="modules">
+        Modules
       </div>
     );
   }
